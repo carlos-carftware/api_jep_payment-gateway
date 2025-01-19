@@ -222,6 +222,7 @@ class OdooApi:
                                 self.key, 'account.payment', 'search', [[
                 ['ref_card', '=', idtransaccion],
                 ['state', '=', 'posted'],
+                ['is_reconcile_ext', '=', False]
 
             ]])
 
