@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<respuestaServicioBasico>
+    <nombre>${nombre}</nombre>
+    <estado>OK</estado>
+    <mensaje>PENDIENTE DE PAGO</mensaje>
+    <cedDeudor>${cedDeudor}</cedDeudor>
+    <codDeudor>${codDeudor}</codDeudor>
+    % for item in pagos:
+    <detallesServicioBasico>
+        <referencia>${item['referencia']}</referencia>
+        <contrato>${item['contrato']}</contrato>
+        <referencia1>${item['referencia1']}</referencia1>
+        <valor>${item['valor']}</valor>
+        <comision>${item['comision']}</comision>
+        <valorMinimo>${item['valorMinimo']}</valorMinimo>
+        <codigoRetorno>${item['codigoRetorno']}</codigoRetorno>
+        <iva>${item['iva']}</iva>
+        <prioridad>${item['prioridad']}</prioridad>
+    </detallesServicioBasico>
+    % endfor
+</respuestaServicioBasico>
+
+

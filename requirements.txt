@@ -1,0 +1,8 @@
+beautifulsoup4==4.9.3
+Flask
+Flask-JSON
+pycparser
+pyOpenSSL
+python-dateutil
+python-slugify
+mako==1.3.2

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<respuestaServicioBasicoPago>
+    <identificacion>${identificacion}</identificacion>
+    <estado>OK</estado>
+    <cedDeudor>${cedDeudor}</cedDeudor>
+</respuestaServicioBasicoPago>

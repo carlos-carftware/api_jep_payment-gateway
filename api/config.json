@@ -1,0 +1,9 @@
+{
+  "ODOO_SERVER": "https://hallo-pretaller-15742426.dev.odoo.com",
+  "ODOO_DATABASE": "hallo-pretaller-15742426",
+  "ODOO_USER": "admin",
+  "ODOO_APIKEY": "625c0c2697cf74f5356a9a45034dac9200e74057",
+  "ODOO_PAYMENT_METHOD_ID": 162,
+  "ODOO_PAYMENT_METHOD_LINE_ID": 639,
+  "ODOO_COMPANY_ID": 1
+}
