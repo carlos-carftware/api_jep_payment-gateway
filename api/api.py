@@ -155,7 +155,7 @@ class OdooApi:
     def _exists_id_in_list(self, list_ids, list_match):
         return [str(x) for x in list_ids if x not in list_match]
 
-    def set_debt_payment(self, journal, pmethod, payments, idtransaccion):
+    def set_debt_payment(self, journal, pmethod, payments, idtransaccion,canal):
         self.connect()
         models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(self.server), allow_none=True)
         partner_id_for_sale = self.get_sale_order_with_amount_residual(models, list(payments.keys()))
@@ -187,7 +187,9 @@ class OdooApi:
                 'company_id': self.company,
 		        'is_collector': True,
                 "collector_ext":  'switch',
-
+                'bank_id':  self.get_account_journal(models, journal),
+                'lot': str(datetime.today().strftime('%Y-%m-%d %H:%M:%S')),
+                'auth': str(canal + ' ' + idtransaccion),
             })
         payment_id = models.execute_kw(
             self.db,
@@ -255,3 +257,15 @@ class OdooApi:
             else:
                 return float("0.%s" % str_amount)
 
+    def get_account_journal(self, models, journal_id):
+        data_value = models.execute_kw(
+            self.db,
+            self.uid,
+            self.key,
+            'account.journal',
+            'search_read',
+            [[
+                ['id', '=', journal_id]
+            ]],
+            {'fields': ['bank_id']})
+        return data_value[0].get('bank_id', 0)[0]

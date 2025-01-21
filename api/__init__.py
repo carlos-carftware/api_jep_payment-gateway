@@ -81,7 +81,7 @@ def set_data_payment_or_reverse():
             payment_disc[int(referencia)] = monto
 
         try:
-            API.set_debt_payment(journal,pmethod,payment_disc,idtransaccion)
+            API.set_debt_payment(journal,pmethod,payment_disc,idtransaccion,canal)
             _template = MakoTemplate(filename=os.path.join(dir_json, "template/return_debt_payment.xml"))
 
             return _template.render(
