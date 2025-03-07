@@ -58,6 +58,7 @@ class OdooApi:
                 ['id', 'in', ids],
                 ['amount_residual', '>', 0],
                 ['company_id', '=', self.company],
+                ['state', 'in', ["draft", "sent", "sale"]],
             ]],
             {'fields': ['id', 'partner_id']})
 
@@ -83,6 +84,7 @@ class OdooApi:
                 ['partner_id.vat', '=', identification],
                 ['amount_residual', '>', 0],
                 ['company_id', '=', self.company],
+                ['state', 'in', ["draft", "sent", "sale"]],
                 ['order_line.subscription_id', 'in', ids],
             ]],
             {'fields': ['id', 'name', 'partner_id', 'promotion_templ_id', 'ek_subscription_id', 'amount_residual',
